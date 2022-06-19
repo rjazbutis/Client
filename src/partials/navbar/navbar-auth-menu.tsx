@@ -6,13 +6,13 @@ import {
   Paper,
   MenuList,
   MenuItem,
-  Divider,
   Typography,
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { selectAuthUser } from '../../store/selectors';
 import { authLogoutAction } from '../../store/action-creators';
 import { useRootDispatch, useRootSelector } from '../../store/hooks';
+import NavbarLink from './navbar-link';
 
 const NavbarAuthMenu: React.FC = () => {
   const navigate = useNavigate();
@@ -51,6 +51,9 @@ const NavbarAuthMenu: React.FC = () => {
         }}
         onClick={handleMenuOpen}
       >
+        <Box>
+          <NavbarLink to="/Wishlist">Wishlist</NavbarLink>
+        </Box>
         <Typography sx={{ mr: 2, userSelect: 'none' }}>{user?.email}</Typography>
         {(userInitials || user?.img) && <Avatar src={user?.img}>{userInitials}</Avatar>}
 
@@ -66,7 +69,6 @@ const NavbarAuthMenu: React.FC = () => {
             <MenuItem onClick={() => handleNavigate('/profile')}>
               ProfilePage
             </MenuItem>
-            <Divider />
             <MenuItem onClick={logout}>
               Atsijungti
             </MenuItem>

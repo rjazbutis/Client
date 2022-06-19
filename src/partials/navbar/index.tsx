@@ -10,6 +10,7 @@ import NavbarAuthMenu from './navbar-auth-menu';
 import NavbarVisitorMenu from './navbar-visitor-menu';
 import { useRootSelector } from '../../store/hooks';
 import { selectAuthLoggedIn } from '../../store/selectors';
+import MoonAnimation from '../../components/animations/moon/moon';
 
 const Navbar: React.FC = () => {
   const loggedIn = useRootSelector(selectAuthLoggedIn);
@@ -23,7 +24,7 @@ const Navbar: React.FC = () => {
         }}
         >
           <Box>
-            <NavbarLink to="/">Home</NavbarLink>
+            <NavbarLink to="/"><MoonAnimation /></NavbarLink>
           </Box>
           <Box sx={{ display: 'flex' }}>
             {loggedIn ? <NavbarAuthMenu /> : <NavbarVisitorMenu />}

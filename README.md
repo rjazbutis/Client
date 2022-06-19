@@ -1,4 +1,4 @@
-# Demo E-shop
+# Books page
 
 ## System requirements
   * Node.js

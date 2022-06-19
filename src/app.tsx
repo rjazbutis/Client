@@ -1,11 +1,8 @@
 import React from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Provider as ReduxProvider } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
 
-import { useRootSelector, useRootDispatch } from './store/hooks';
-import { selectAuthLoading, selectAuthLoggedIn, selectAuthToken } from './store/selectors';
-import { createAuthenticateActionThunk } from './store/action-creators';
-
-import HomePage from './pages/home-page';
+import HomePage from './pages/home-page/home-page';
 import LoginPage from './pages/login-page';
 import RegisterPage from './pages/register-page/index';
 import ProfilePage from './pages/profile-page';
@@ -14,21 +11,11 @@ import VisitorLayout from './layouts/visitor-layout';
 import RequireAuth from './routing/require-auth';
 import RequireVisitor from './routing/require-visitor';
 
-const App: React.FC = () => {
-  const location = useLocation();
-  const token = useRootSelector(selectAuthToken);
-  const loggedIn = useRootSelector(selectAuthLoggedIn);
-  const loading = useRootSelector(selectAuthLoading);
-  const dispatch = useRootDispatch();
+import store from './store';
+import WishList from './pages/wishlist-page';
 
-  if (!loggedIn && token) {
-    if (!loading) {
-      dispatch(createAuthenticateActionThunk(token, location.pathname));
-    }
-    return <div />;
-  }
-
-  return (
+const App: React.FC = () => (
+  <ReduxProvider store={store}>
     <Routes>
       <Route path="/" element={<VisitorLayout />}>
         <Route index element={<HomePage />} />
@@ -38,6 +25,14 @@ const App: React.FC = () => {
             <RequireVisitor>
               <LoginPage />
             </RequireVisitor>
+          )}
+        />
+        <Route
+          path="auth/wishlist"
+          element={(
+            <RequireAuth>
+              <WishList />
+            </RequireAuth>
           )}
         />
         <Route
@@ -58,7 +53,7 @@ const App: React.FC = () => {
         />
       </Route>
     </Routes>
-  );
-};
+  </ReduxProvider>
+);
 
 export default App;
