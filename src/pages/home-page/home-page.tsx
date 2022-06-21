@@ -31,27 +31,31 @@ const HomePage: React.FC = () => {
       maxWidth={false}
       sx={{
         background: `url(${img1})`,
-        height: '2000px',
-        m: 0,
+        minHeight: '1000px',
+        maxHeight: '100%',
         backgroundPosition: 'top',
         backgroundSize: 'cover',
       }}
     >
-      <Typography component="h1" variant="h2" sx={{ textAlign: 'center', mb: 3 }}>
-        Let&#39;s read together.
-      </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+        <Typography component="h1" variant="h2" sx={{ color: 'white', my: 10 }}>
+          Let&#39;s read together.
+        </Typography>
+      </Box>
       <Paper
         component="form"
         onSubmit={searchBook}
         sx={{
           p: '2px 4px',
           display: 'flex',
-          width: 400,
-          borderRadius: '10px',
+          margin: 'auto',
+          minWidth: 300,
+          maxWidth: 500,
+          borderRadius: 1,
         }}
       >
         <InputBase
-          sx={{ ml: 1, flex: 1 }}
+          sx={{ flex: 1, px: 1 }}
           placeholder="Enter a book"
           value={search}
           onChange={(e) => setSearch(e.target.value)}

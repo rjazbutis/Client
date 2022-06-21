@@ -8,7 +8,6 @@ import {
   Typography,
   CircularProgress,
 } from '@mui/material';
-import SecurityIcon from '@mui/icons-material/Security';
 import { selectAuthError, selectAuthLoggedIn } from '../store/selectors';
 import { useRootDispatch, useRootSelector } from '../store/hooks';
 import { authClearErrorAction } from '../store/action-creators';
@@ -66,11 +65,18 @@ const AuthForm: React.FC<AuthFormProps> = ({
           gap: 1,
           p: 3,
           width: contentWidth,
+          borderRadius: 2,
+          opacity: 0.7,
+          transition: '0.3s',
+          ':hover': {
+            opacity: 1,
+            transform: 'Scale(1.1)',
+
+          },
         }}
         onSubmit={onSubmit}
       >
-        <SecurityIcon color="primary" sx={{ fontSize: 45 }} />
-        <Typography component="h1" variant="h4">{formTitle}</Typography>
+        <Typography component="h1" variant="h4" my={2}>{formTitle}</Typography>
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',

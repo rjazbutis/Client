@@ -6,7 +6,7 @@ const createColor = (color: string): PaletteColor => defaultTheme.palette.augmen
 
 const theme = createTheme({
   palette: {
-    primary: createColor('#fc5e03'),
+    primary: createColor('#b8aba3'),
     secondary: createColor('#474747'),
   },
   shape: {

@@ -8,14 +8,14 @@ import {
   MenuItem,
   Typography,
 } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import { selectAuthUser } from '../../store/selectors';
 import { authLogoutAction } from '../../store/action-creators';
 import { useRootDispatch, useRootSelector } from '../../store/hooks';
 import NavbarLink from './navbar-link';
 
 const NavbarAuthMenu: React.FC = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const user = useRootSelector(selectAuthUser);
   const dispatch = useRootDispatch();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -23,11 +23,6 @@ const NavbarAuthMenu: React.FC = () => {
 
   const logout = () => {
     dispatch(authLogoutAction);
-  };
-
-  const handleNavigate = (route: string) => {
-    setMenuOpen(false);
-    navigate(route);
   };
 
   const handleMenuOpen = () => {
@@ -51,10 +46,10 @@ const NavbarAuthMenu: React.FC = () => {
         }}
         onClick={handleMenuOpen}
       >
-        <Box>
-          <NavbarLink to="/Wishlist">Wishlist</NavbarLink>
+        <Box mr={2}>
+          <FavoriteIcon sx={{ ':hover': { color: '#e36868' } }} />
         </Box>
-        <Typography sx={{ mr: 2, userSelect: 'none' }}>{user?.email}</Typography>
+        <Typography sx={{ mr: 2, userSelect: 'none', color: '#b8aba3' }}>{user?.email}</Typography>
         {(userInitials || user?.img) && <Avatar src={user?.img}>{userInitials}</Avatar>}
 
       </Box>
@@ -66,9 +61,6 @@ const NavbarAuthMenu: React.FC = () => {
       >
         <Paper elevation={3}>
           <MenuList>
-            <MenuItem onClick={() => handleNavigate('/profile')}>
-              ProfilePage
-            </MenuItem>
             <MenuItem onClick={logout}>
               Atsijungti
             </MenuItem>
