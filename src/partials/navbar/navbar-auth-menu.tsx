@@ -12,7 +12,6 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import { selectAuthUser } from '../../store/selectors';
 import { authLogoutAction } from '../../store/action-creators';
 import { useRootDispatch, useRootSelector } from '../../store/hooks';
-import NavbarLink from './navbar-link';
 
 const NavbarAuthMenu: React.FC = () => {
   // const navigate = useNavigate();
