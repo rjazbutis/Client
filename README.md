@@ -4,7 +4,7 @@
 <img src="https://en.meming.world/images/en/b/be/But_It%27s_Honest_Work.jpg"/>
 
 # Description:
-  React based books app <b>IN DEVELOPMENT</b>, that lets you create your own collection of books. PROBABLY WILL BE TRANSFERED TO MOBILE APP.
+  React based books app <b>IN DEVELOPMENT</b>, that lets you create your own collection of books. <b>PROBABLY WILL BE TRANSFERED TO MOBILE APP</b>.
 
 ## System requirements:
   * Node.js
