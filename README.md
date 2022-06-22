@@ -24,3 +24,4 @@
   * npm start - launch development server
   * npm build - compile app
   * npm run server - launches demo server
+

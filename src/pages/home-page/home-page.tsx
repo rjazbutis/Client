@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
     >
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
         <Typography component="h1" variant="h2" sx={{ color: 'white', my: 10 }}>
-          Let&#39;s read together.
+          Let&#39;s read together
         </Typography>
       </Box>
       <Paper
